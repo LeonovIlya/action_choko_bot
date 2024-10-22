@@ -44,7 +44,7 @@ start_menu_cm = ReplyKeyboardMarkup(keyboard=[
 # меню kpi
 kpi_menu = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Мой KPI📈'), KeyboardButton(text='KPI TT🏬')],
-    # [KeyboardButton(text='Информация по бонусу💰')],
+    [KeyboardButton(text='Информация по бонусу💰')],
     [KeyboardButton(text='Главное меню📱')]],
     resize_keyboard=True,
     one_time_keyboard=True)

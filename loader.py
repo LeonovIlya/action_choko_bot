@@ -18,11 +18,11 @@ job_stores = {
         jobs_key="dispatched_trips_jobs",
         run_times_key="dispatched_trips_running",
         host=config.REDIS_HOST,
-        port=6379,
+        port=config.REDIS_PORT,
         password=config.REDIS_PASSWORD
     )
 }
 
 dp = Dispatcher(bot, storage=storage)
-db = BotDB('data.db')
+db = BotDB('data_mwc.db')
 scheduler = AsyncIOScheduler()
