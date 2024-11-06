@@ -50,7 +50,7 @@ async def kpi_menu(message: types.Message):
     await UserState.kpi_menu.set()
 
 
-# @decorators.error_handler_message
+@decorators.error_handler_message
 async def kpi_mr(message: types.Message, state: FSMContext):
     query = await db.get_one(
         await queries.get_value(
@@ -66,7 +66,7 @@ async def kpi_mr(message: types.Message, state: FSMContext):
              f'{KPI[1]:<4}'
              f'{query[14]:>12.2%}|{query[15]:>8.2%}|{query[16]:>8.2%}\n'
              f'{KPI[2]:<4}'
-             f'{query[17]:>13}|{query[18]:>8}|{query[19]:>8.2%}\n'
+             f'{query[17]:>13.2f}|{query[18]:>8.2f}|{query[19]:>8.2%}\n'
              f'{KPI[3]:<7}'
              f'{query[20]:>10}|{query[21]:>8}|{query[22]:>8.2%}\n'
              f'{KPI[4]:<7}{query[23]:>27}\n'
@@ -88,7 +88,7 @@ async def kpi_tt(message: types.Message):
     await UserState.kpi_search_tt.set()
 
 
-# "@decorators.error_handler_message
+@decorators.error_handler_message
 async def kpi_search_tt(message: types.Message, state: FSMContext):
     tt_num = re.sub(r'\s', '', str(message.text))
     if re.match(r'\d{5}', tt_num) and len(tt_num) == 5:
@@ -98,10 +98,6 @@ async def kpi_search_tt(message: types.Message, state: FSMContext):
                 table='tt'),
             tt_num=tt_num)
         if query:
-            n = 0
-            for i in query:
-                print(n, ')', i, '-', type(i))
-                n += 1
             tt_address = await replace_symbols(re.sub(R_STR, '', query[5]))
             mr_name = await replace_symbols(query[6])
             kas_name = await replace_symbols(query[7])
@@ -123,7 +119,7 @@ async def kpi_search_tt(message: types.Message, state: FSMContext):
                      f'{query[12]:>12.2%}|{query[13]:>8.2%}|'
                      f'{query[14]:>8.2%}\n'
                      f'{KPI[2]:<4}'
-                     f'{query[15]:>13}|{query[16]:>8}|'
+                     f'{query[15]:>13.2f}|{query[16]:>8.2f}|'
                      f'{query[17]:>8.2%}\n'
                      f'{KPI[3]:<7}'
                      f'{query[18]:>10}|{query[19]:>8}|'
