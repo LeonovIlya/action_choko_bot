@@ -50,12 +50,12 @@ kpi_menu = ReplyKeyboardMarkup(keyboard=[
     one_time_keyboard=True)
 
 # меню рейтингов для мерчендайзера и супервайзера
-# ratings_menu_mr = ReplyKeyboardMarkup(keyboard=[
-#     [KeyboardButton(text='Мои рейтинги📊'),
-#      KeyboardButton(text='Результаты тестов📋')],
-#     [KeyboardButton(text='Главное меню📱')]],
-#     resize_keyboard=True,
-#     one_time_keyboard=True)
+ratings_menu_mr = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='Мои рейтинги📊'),
+     KeyboardButton(text='Результаты тестов📋')],
+    [KeyboardButton(text='Главное меню📱')]],
+    resize_keyboard=True,
+    one_time_keyboard=True)
 
 # меню практик для мерчендайзера
 # practice_menu_mr = ReplyKeyboardMarkup(keyboard=[
